@@ -7,7 +7,7 @@ export const BookType = () => {
       <Head>
         <script
           src="https://kit.fontawesome.com/yourcode.js"
-          crossorigin="anonymous"
+          crossOrigin="anonymous"
         ></script>
       </Head>
       {/* Heading */}

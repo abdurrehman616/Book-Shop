@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { Checkout } from "../../components/Checkout";
+import Checkout from "../../components/Checkout";
 
 const index = () => {
   return (

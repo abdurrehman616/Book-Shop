@@ -4,11 +4,14 @@ import { Banner } from "../components/Banner";
 import { BookType } from "../components/BookType";
 import { AnotherBanner } from "../components/AnotherBanner";
 import { Footer } from "../components/Footer";
-import { BestSellers } from "../components/BestSellers";
+import BestSellers from "../components/BestSellers";
+
 
 export default function Home() {
+
   return (
-    <div className="flex flex-col min-h-screen bg-base-100">
+
+    <div className="flex flex-col min-h-screen bg-base-10 text-base-100">
       <Head>
         <title>Book Shop</title>
         <link rel="icon" href="/favicon.ico" />
@@ -46,5 +49,6 @@ export default function Home() {
         </div>
       </main>
     </div>
+
   );
 }

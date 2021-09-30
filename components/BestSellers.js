@@ -1,44 +1,26 @@
-export const BestSellers = () => {
-  const bestSellers = [
-    {
-      id: 1,
-      image:
-        "https://www.getnow.pk/wp-content/uploads/2018/03/The-fault-in-our-stars-433x433.png",
-      title: "The Fault in Our Stars",
-      author: "John Green",
-      rating: 4.5,
-      price: 25,
-    },
-    {
-      id: 2,
-      image:
-        "https://www.getnow.pk/wp-content/uploads/2018/03/Subtle-Art-Of-Not-Giving-A-FCk-433x433.png",
-      title: "The Subtle Art of Not Giving a F*uk",
-      author: "Mark Manson",
-      rating: 4.5,
-      price: 25,
-    },
-    {
-      id: 3,
-      image: "https://www.getnow.pk/wp-content/uploads/2018/03/7-433x433.png",
-      title: "7 Habits of Highly Effective People",
-      author: "Jim Collins",
-      rating: 4.5,
-      price: 25,
-    },
-    {
-      id: 4,
-      image:
-        "https://www.getnow.pk/wp-content/uploads/2018/03/The-Deathly-Hallows-433x433.png",
-      title: "Harry Potter & The Deathly Hallows",
-      author: "JK Rolling ",
-      rating: 4.5,
-      price: 25,
-    },
-  ];
+import { connect } from 'react-redux'
+
+const BestSellers = ({ books, dispatch }) => {
+
+  const addToCart = (book) => {
+    const newItem = {
+      id: book.id,
+      image: book.image,
+      title: book.title,
+      author: book.author,
+      rating: book.rating,
+      price: book.price,
+      quantity: 1
+    }
+    dispatch({
+      type: "ADD_TO_BASKET",
+      payload: newItem
+    })
+
+  }
 
   return (
-    <div className="flex flex-col w-full lg:px-12">
+    <div className="flex flex-col w-full lg:px-12 text-black">
       <div className="flex justify-between w-full p-10">
         {/* Heading */}
         <div className="text-3xl font-bold">
@@ -50,11 +32,11 @@ export const BestSellers = () => {
         </div>
       </div>
       <div className="mx-auto lg:flex justify-center grid grid-cols-2 lg:grid lg:grid-cols-4 md:grid md:grid-cols-3">
-        {bestSellers.map((book) => {
+        {books?.map((book) => {
           return (
             <div
               key={book.id}
-              className="card bordered  bg-light-brown lg:m-5 md:m-4"
+              className="card bordered text-black bg-light-brown lg:m-5 md:m-4"
             >
               <figure>
                 <img src={book.image} />
@@ -70,7 +52,7 @@ export const BestSellers = () => {
                     <i className="fas fa-star text-warning" />
                     <span>{book.rating}</span>
                   </div>
-                  <button className="btn btn-info">Add to cart</button>
+                  <button className="btn btn-info" onClick={() => (addToCart(book))}>Add to cart</button>
                 </div>
               </div>
             </div>
@@ -80,3 +62,11 @@ export const BestSellers = () => {
     </div>
   );
 };
+
+const mapStateToProps = state => {
+
+  const { books } = state
+  return { books }
+}
+
+export default connect(mapStateToProps)(BestSellers)
