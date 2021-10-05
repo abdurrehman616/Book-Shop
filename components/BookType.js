@@ -11,7 +11,7 @@ export const BookType = () => {
         ></script>
       </Head>
       {/* Heading */}
-      <div className="flex text-3xl text-bold justify-center mb-10">
+      <div className="flex text-3xl text-bold justify-center mb-10 text-black">
         <span>Book Type</span>
       </div>
 
