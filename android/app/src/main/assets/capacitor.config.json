@@ -1,0 +1,6 @@
+{
+	"appId": "com.example.bookshop",
+	"appName": "Book Shop",
+	"webDir": "public",
+	"bundledWebRuntime": false
+}

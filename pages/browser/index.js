@@ -8,7 +8,7 @@ const index = () => {
 
   useEffect(() => {
     const fetchBooks = async () => {
-      const { data } = await axios.get('/api/books/');
+      const { data } = await axios.get('http//api/books/');
       console.log(data)
       setBooks(data);
     }
